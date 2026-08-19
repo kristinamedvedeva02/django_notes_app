@@ -20,9 +20,13 @@
 
 {% block content %}
 
-<section class="welcome">
+<main class="home-page">
 
-    {% if user.is_authenticated %}
+    <!-- =========================
+         Welcome
+         ========================= -->
+
+    <section class="welcome">
 
         <h1>
             Привет,
@@ -33,118 +37,155 @@
             Добро пожаловать в твои заметки.
         </p>
 
-    {% else %}
+    </section>
 
-        <h1>
-            Твои <span>Notes</span>
-        </h1>
 
-        <p>
-            Простое место для хранения мыслей и идей.
-        </p>
+    {% if user.is_authenticated %}
+
+        <!-- =========================
+             Notes
+             ========================= -->
+
+        <section class="notes-section">
+
+            <!-- Header -->
+
+            <div class="notes-header">
+
+                <div>
+
+                    <h2>
+                        Мои заметки
+                    </h2>
+
+                    <p>
+                        Храни здесь свои мысли и идеи.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="show-create-note-form"
+                    class="add-note-button"
+                >
+                    + Создать заметку
+                </button>
+
+            </div>
+
+
+            <!-- =========================
+                 Create note form
+                 ========================= -->
+
+            <section
+                id="create-note-section"
+                class="note-create"
+                hidden
+            >
+
+                <h2>
+                    Новая заметка
+                </h2>
+
+
+                <form
+                    id="create-note-form"
+                >
+
+                    <!-- Title -->
+
+                    <div class="form-group">
+
+                        <label for="create-title">
+                            Заголовок
+                        </label>
+
+                        <input
+                            type="text"
+                            id="create-title"
+                            name="title"
+                            maxlength="100"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Text -->
+
+                    <div class="form-group">
+
+                        <label for="create-text">
+                            Текст заметки
+                        </label>
+
+                        <textarea
+                            id="create-text"
+                            name="text"
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- Actions -->
+
+                    <div class="note-form-actions">
+
+                        <button
+                            type="submit"
+                            class="save-note-button"
+                        >
+                            Сохранить
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="cancel-create-note"
+                            class="cancel-note-button"
+                        >
+                            Отмена
+                        </button>
+
+                    </div>
+
+
+                    <!-- Error -->
+
+                    <div
+                        id="create-error"
+                        class="error-message"
+                    ></div>
+
+                </form>
+
+            </section>
+
+
+            <!-- =========================
+                 Notes list
+                 ========================= -->
+
+            <div
+                id="notes-container"
+                class="notes-container"
+            >
+
+                <p class="notes-loading">
+                    Загрузка заметок...
+                </p>
+
+            </div>
+
+        </section>
 
     {% endif %}
 
-</section>
-
-
-{% if user.is_authenticated %}
-
-    <!-- ============================= -->
-    <!-- Создание новой заметки -->
-    <!-- ============================= -->
-
-    <section class="note-create">
-
-        <h2>Новая заметка</h2>
-
-        <form id="create-note-form">
-
-            <div class="form-group">
-
-                <label for="create-title">
-                    Заголовок
-                </label>
-
-                <input
-                    type="text"
-                    id="create-title"
-                    name="title"
-                    maxlength="200"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="create-text">
-                    Текст
-                </label>
-
-                <textarea
-                    id="create-text"
-                    name="text"
-                    required
-                ></textarea>
-
-            </div>
-
-
-            <button
-                type="submit"
-                class="button"
-            >
-                Добавить заметку
-            </button>
-
-        </form>
-
-
-        <div
-            id="create-error"
-            class="error-message"
-        ></div>
-
-    </section>
-
-
-    <!-- ============================= -->
-    <!-- Список заметок -->
-    <!-- ============================= -->
-
-    <section class="notes-section">
-
-        <h2>Мои заметки</h2>
-
-        <div
-            id="notes-container"
-            class="notes-container"
-        >
-
-            <p>
-                Загрузка заметок...
-            </p>
-
-        </div>
-
-    </section>
-
-
-{% else %}
-
-    <section class="welcome">
-
-        <p>
-            Войди в аккаунт, чтобы создавать
-            и хранить свои заметки.
-        </p>
-
-    </section>
-
-{% endif %}
-
+</main>
 
 {% endblock %}
 
@@ -152,7 +193,8 @@
 {% block extra_js %}
 
     <script
-        src="{% static 'js/notes.js' %}"
+        src="{% static 'js/home.js' %}"
+        defer
     ></script>
 
 {% endblock %}
