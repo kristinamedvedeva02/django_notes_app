@@ -1,0 +1,268 @@
+/* =========================
+   Welcome
+   ========================= */
+
+.welcome {
+    text-align: center;
+
+    margin-bottom: 60px;
+}
+
+
+.welcome h1 {
+    margin-bottom: 15px;
+
+    font-size: 48px;
+}
+
+
+.welcome h1 span {
+    color: #7f9cff;
+}
+
+
+.welcome p {
+    color: #999999;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   Notes
+   ========================= */
+
+.notes-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(250px, 1fr)
+        );
+
+    gap: 20px;
+}
+
+
+.note {
+    min-height: 180px;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(15px);
+
+    transition: 0.25s;
+}
+
+
+.note:hover {
+    transform: translateY(-5px);
+
+    background:
+        rgba(255, 255, 255, 0.1);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+.note h2 {
+    margin-bottom: 12px;
+
+    font-size: 20px;
+}
+
+
+.note p {
+    color: #aaaaaa;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   Add note
+   ========================= */
+
+.add-note {
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 35px;
+}
+
+
+.add-note a {
+    padding: 13px 25px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6c63ff,
+            #00bfff
+        );
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+
+.add-note a:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(108, 99, 255, 0.35);
+}
+
+.note-create {
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    backdrop-filter: blur(15px);
+}
+
+
+.note-create h2 {
+    margin-top: 0;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+}
+
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 10px 12px;
+
+    border-radius: 8px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: inherit;
+
+    font-family: inherit;
+}
+
+
+.form-group textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+
+.button {
+    padding: 10px 18px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
+.error-message,
+.note-error {
+    margin-top: 10px;
+
+    color: #ff7777;
+}
+
+
+.note-date {
+    margin-top: 15px;
+
+    font-size: 12px;
+
+    opacity: 0.6;
+}
+
+
+.note-actions {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+
+.note-actions button {
+    padding: 7px 12px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+}
+
+
+.note-edit-form input,
+.note-edit-form textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 10px;
+
+    margin-bottom: 10px;
+
+    border-radius: 8px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: inherit;
+
+    font-family: inherit;
+}
+
+
+.note-edit-form textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}

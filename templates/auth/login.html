@@ -1,0 +1,77 @@
+{% extends "common/base.html" %}
+
+{% load static %}
+
+
+{% block title %}
+    Вход
+{% endblock %}
+
+
+{% block extra_css %}
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/auth.css' %}"
+    >
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="auth-page">
+
+    <div class="auth-container">
+
+        <div class="auth-logo">
+            ✦
+        </div>
+
+
+        <h1 class="auth-title">
+            С возвращением
+        </h1>
+
+
+        <p class="auth-subtitle">
+            Войдите в свой аккаунт
+        </p>
+
+
+        <form
+            method="post"
+            action="{% url 'login' %}"
+            class="auth-form"
+        >
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+
+            <button
+                type="submit"
+                class="auth-button"
+            >
+                Войти
+            </button>
+
+        </form>
+
+
+        <p class="auth-footer">
+
+            Нет аккаунта?
+
+            <a href="{% url 'register' %}">
+                Зарегистрироваться
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

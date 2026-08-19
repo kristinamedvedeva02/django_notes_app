@@ -1,0 +1,158 @@
+{% extends "common/base.html" %}
+
+{% load static %}
+
+
+{% block title %}
+    Notes
+{% endblock %}
+
+
+{% block extra_css %}
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/home.css' %}"
+    >
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="welcome">
+
+    {% if user.is_authenticated %}
+
+        <h1>
+            Привет,
+            <span>{{ user.username }}</span>!
+        </h1>
+
+        <p>
+            Добро пожаловать в твои заметки.
+        </p>
+
+    {% else %}
+
+        <h1>
+            Твои <span>Notes</span>
+        </h1>
+
+        <p>
+            Простое место для хранения мыслей и идей.
+        </p>
+
+    {% endif %}
+
+</section>
+
+
+{% if user.is_authenticated %}
+
+    <!-- ============================= -->
+    <!-- Создание новой заметки -->
+    <!-- ============================= -->
+
+    <section class="note-create">
+
+        <h2>Новая заметка</h2>
+
+        <form id="create-note-form">
+
+            <div class="form-group">
+
+                <label for="create-title">
+                    Заголовок
+                </label>
+
+                <input
+                    type="text"
+                    id="create-title"
+                    name="title"
+                    maxlength="200"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="create-text">
+                    Текст
+                </label>
+
+                <textarea
+                    id="create-text"
+                    name="text"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="button"
+            >
+                Добавить заметку
+            </button>
+
+        </form>
+
+
+        <div
+            id="create-error"
+            class="error-message"
+        ></div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- Список заметок -->
+    <!-- ============================= -->
+
+    <section class="notes-section">
+
+        <h2>Мои заметки</h2>
+
+        <div
+            id="notes-container"
+            class="notes-container"
+        >
+
+            <p>
+                Загрузка заметок...
+            </p>
+
+        </div>
+
+    </section>
+
+
+{% else %}
+
+    <section class="welcome">
+
+        <p>
+            Войди в аккаунт, чтобы создавать
+            и хранить свои заметки.
+        </p>
+
+    </section>
+
+{% endif %}
+
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+    <script
+        src="{% static 'js/notes.js' %}"
+    ></script>
+
+{% endblock %}

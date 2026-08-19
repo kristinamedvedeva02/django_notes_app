@@ -1,0 +1,288 @@
+/* =========================
+   Authentication page
+   ========================= */
+
+.auth-page {
+    min-height: 75vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* =========================
+   Container
+   ========================= */
+
+.auth-container {
+    width: 420px;
+
+    padding: 40px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 24px;
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.4);
+
+    animation:
+        appear 0.6s ease;
+}
+
+
+/* =========================
+   Animation
+   ========================= */
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================
+   Logo
+   ========================= */
+
+.auth-logo {
+    width: 60px;
+    height: 60px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6c63ff,
+            #00d4ff
+        );
+
+    font-size: 28px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(108, 99, 255, 0.4);
+}
+
+
+/* =========================
+   Title
+   ========================= */
+
+.auth-title {
+    text-align: center;
+
+    margin-bottom: 8px;
+
+    font-size: 28px;
+}
+
+
+.auth-subtitle {
+    text-align: center;
+
+    margin-bottom: 30px;
+
+    color: #aaa;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   Form
+   ========================= */
+
+.auth-form p {
+    margin-bottom: 18px;
+}
+
+
+.auth-form label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #ccc;
+
+    font-size: 14px;
+}
+
+
+.auth-form input {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background:
+        rgba(0, 0, 0, 0.2);
+
+    color: white;
+
+    font-size: 15px;
+
+    transition: 0.2s;
+}
+
+
+.auth-form input:focus {
+    border-color: #6c63ff;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(108, 99, 255, 0.15);
+}
+
+
+.auth-form input::placeholder {
+    color: #777;
+}
+
+
+/* =========================
+   Django errors
+   ========================= */
+
+.auth-form .errorlist {
+    margin-bottom: 8px;
+
+    padding-left: 0;
+
+    list-style: none;
+
+    color: #ff8585;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   Help text
+   ========================= */
+
+.auth-form .helptext {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   Submit button
+   ========================= */
+
+.auth-button {
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 8px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6c63ff,
+            #00bfff
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.auth-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(108, 99, 255, 0.35);
+}
+
+
+.auth-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   Footer
+   ========================= */
+
+.auth-footer {
+    margin-top: 25px;
+
+    text-align: center;
+
+    color: #999;
+
+    font-size: 14px;
+}
+
+
+.auth-footer a {
+    color: #7f9cff;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
