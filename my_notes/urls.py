@@ -1,6 +1,11 @@
-
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework.permissions import IsAdminUser
+
+from drf_spectacular.views import (
+    SpectacularAPIView,
+    SpectacularSwaggerView,
+)
 
 
 urlpatterns = [
@@ -10,11 +15,21 @@ urlpatterns = [
         "accounts/",
         include("django.contrib.auth.urls")
     ),
-
     path(
-        "",
-        include("authentification.urls")
+        'api/schema/',
+        SpectacularAPIView.as_view(permission_classes=[IsAdminUser]),
+        name='schema'
     ),
+    path(
+        'api/docs/',
+        SpectacularSwaggerView.as_view(
+            url_name='schema',
+            permission_classes=[IsAdminUser]
+            ),
+        name='swagger-ui'
+    ),
+
+    path( "", include("authentification.urls")),
     path('api/', include('notes.urls'))
 
 ]

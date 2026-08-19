@@ -23,8 +23,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'drf_spectacular',
     'authentification',
-    'notes'
+    'notes',
 ]
 
 MIDDLEWARE = [
@@ -33,6 +34,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'common.middleware.AdminAccessMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -114,5 +116,6 @@ LOGIN_REDIRECT_URL = "home"     # переход на домащнюю посл�
 LOGOUT_REDIRECT_URL = "login"       # переход на логин после логаута
 
 REST_FRAMEWORK = {
-    'EXCEPTION_HANDLER': 'my_notes.exceptions.custom_exception_handler'    # указание на написанные exceptions
+    'EXCEPTION_HANDLER': 'common.exceptions.custom_exception_handler',    # указание на написанные exceptions
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'
 }
