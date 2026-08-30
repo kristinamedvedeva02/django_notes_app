@@ -1,5 +1,7 @@
-from pathlib import Path
 import os
+from datetime import timedelta
+from pathlib import Path
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -22,8 +24,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Extra
     'rest_framework',
+    "rest_framework_simplejwt.token_blacklist",
     'drf_spectacular',
+
+    # Apps
     'authentification',
     'notes',
     'subscriptions',
@@ -35,7 +42,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'common.middleware.AdminAccessMiddleware',
+    # 'common.middleware.AdminAccessMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -113,10 +120,16 @@ MAILERS = {
 
 AUTH_USER_MODEL = "authentification.User"    #Объявление модели пользователя
 
-LOGIN_REDIRECT_URL = "home"     # переход на домащнюю после логина
-LOGOUT_REDIRECT_URL = "login"       # переход на логин после логаута
 
 REST_FRAMEWORK = {
     'EXCEPTION_HANDLER': 'common.exceptions.custom_exception_handler',    # указание на написанные exceptions
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+}
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
 }

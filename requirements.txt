@@ -6,6 +6,7 @@ attrs==26.1.0
 click==8.4.2
 Django==6.1
 djangorestframework==3.18.0
+djangorestframework_simplejwt==5.5.1
 drf-spectacular==0.30.0
 fastapi==0.141.1
 h11==0.16.0
@@ -15,6 +16,7 @@ jsonschema==4.26.0
 jsonschema-specifications==2025.9.1
 pydantic==2.13.4
 pydantic_core==2.46.4
+PyJWT==2.13.0
 python-dotenv==1.2.3
 PyYAML==6.0.3
 referencing==0.37.0
