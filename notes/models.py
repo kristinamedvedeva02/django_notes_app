@@ -1,5 +1,6 @@
-from django.db import models
 from django.conf import settings
+from django.db import models
+
 
 class Note(models.Model):
     author = models.ForeignKey(
@@ -12,6 +13,7 @@ class Note(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
+        db_table = 'notes'
         ordering = ['-created_at']
 
     def __str__(self):
