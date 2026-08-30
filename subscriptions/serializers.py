@@ -11,7 +11,6 @@ class SubscriptionPlanSerializer(
 
         fields = (
             "id",
-            "code",
             "name",
             "price",
             "description",
@@ -33,7 +32,7 @@ class CreateSubscriptionSerializer(
     )
 
     card_number = serializers.CharField(
-        max_length=19,
+        max_length=10,      # Номер карты ограничен 10 символами
         write_only=True,
     )
 
@@ -49,11 +48,9 @@ class SubscriptionSerializer(
         model = Subscription
 
         fields = (
-            "id",
             "plan",
             "price",
             "status",
-            "created_at",
             "updated_at",
         )
 

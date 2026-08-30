@@ -1,5 +1,5 @@
-from django.db import models
 from django.conf import settings
+from django.db import models
 
 
 class SubscriptionPlan(models.Model):
@@ -22,6 +22,8 @@ class SubscriptionPlan(models.Model):
     description = models.TextField(
         blank=True,
     )
+
+    duration_days = models.PositiveIntegerField()
 
     is_active = models.BooleanField(
         default=True,
@@ -54,7 +56,7 @@ class Subscription(models.Model):
         related_name="subscriptions",
     )
     
-        price = models.DecimalField(
+    price = models.DecimalField(
         max_digits=10,
         decimal_places=2,
     ) 
@@ -63,6 +65,15 @@ class Subscription(models.Model):
         max_length=20,
         choices=Status.choices,
         default=Status.PENDING,
+    )
+
+    start_date = models.DateTimeField(          # Дата начала и конца подписки
+        null=True,
+        blank=True,
+    )     
+    end_date = models.DateTimeField(
+        null=True,
+        blank=True,
     )
 
     created_at = models.DateTimeField(auto_now_add=True)
